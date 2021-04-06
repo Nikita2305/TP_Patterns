@@ -6,7 +6,6 @@ class ImmortalMiner;
 class ImmortalMiner: public Miner {
 public:
     ImmortalMiner();
-    ~ImmortalMiner() override;
     Unit* copy() override;
     bool mine() override;
 };

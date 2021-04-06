@@ -1,4 +1,4 @@
-#include "../../include/Commands/AddUnitCommand.h"
+#include "Commands/AddUnitCommand.h"
 
 AddUnitCommand::AddUnitCommand(Unit* unit, std::vector<Unit*>& units): unit(unit), units(units) {}
 

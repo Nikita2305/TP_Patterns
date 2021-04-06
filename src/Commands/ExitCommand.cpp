@@ -1,4 +1,4 @@
-#include "../../include/Commands/ExitCommand.h"
+#include "Commands/ExitCommand.h"
 
 void ExitCommand::execute() {
     exit(0);

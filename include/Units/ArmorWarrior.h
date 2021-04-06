@@ -6,6 +6,5 @@ class ArmorWarrior;
 class ArmorWarrior: public Warrior {
 public:
     ArmorWarrior();
-    ~ArmorWarrior() override;
     Unit* copy() override;
 };

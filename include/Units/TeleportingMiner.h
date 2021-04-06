@@ -6,6 +6,5 @@ class TeleportingMiner;
 class TeleportingMiner: public Miner {
 public:
     TeleportingMiner();
-    ~TeleportingMiner() override;
     Unit* copy() override;
 };

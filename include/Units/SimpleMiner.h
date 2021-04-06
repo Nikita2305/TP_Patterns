@@ -6,6 +6,5 @@ class SimpleMiner;
 class SimpleMiner: public Miner {
 public:
     SimpleMiner();
-    ~SimpleMiner() override;
     Unit* copy() override;
 };
