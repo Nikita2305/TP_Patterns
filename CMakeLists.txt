@@ -18,6 +18,11 @@ add_executable(TP_Project_2_0
     src/Units/SniperWarrior.cpp
     src/Commands/Command.cpp
     src/Commands/AddUnitCommand.cpp
-    src/Commands/DeleteUnitsCommand.cpp
-    src/Commands/ExitCommand.cpp
+    src/QueryHandling/Executor.cpp
+    src/QueryHandling/Query.cpp
+    src/QueryHandling/IStream.cpp
+    src/QueryHandling/BufferStream.cpp
+    src/QueryHandling/StandardInputStream.cpp
+    src/QueryHandling/PlayerInterface.cpp
+    src/GameObjects/Player.cpp
 )

@@ -1,11 +1,9 @@
 #include "Commands/AddUnitCommand.h"
 
-AddUnitCommand::AddUnitCommand(Unit* unit, std::vector<Unit*>& units): unit(unit), units(units) {}
-
-AddUnitCommand::~AddUnitCommand() {
-    delete unit;
+AddUnitCommand::AddUnitCommand(std::unique_ptr<Unit> _unit) {
+    unit = std::move(_unit);
 }
 
-void AddUnitCommand::execute() {
-    units.push_back(unit->copy());
+void AddUnitCommand::execute(Player& player, const std::vector<int>& args) {
+    //player.addUnit(unit->copy()); //may Be Some Customization
 }

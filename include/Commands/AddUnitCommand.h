@@ -2,13 +2,12 @@ class AddUnitCommand;
 
 #pragma once
 #include "Command.h"
+#include <memory>
 
 class AddUnitCommand: public Command {
 private:
-    std::vector<Unit*>& units;
-    Unit* unit;
+    std::unique_ptr<Unit> unit;
 public:
-    AddUnitCommand(Unit*, std::vector<Unit*>&);
-    ~AddUnitCommand() override;
-    void execute() override;
+    AddUnitCommand(std::unique_ptr<Unit>);
+    void execute(Player&, const std::vector<int>&) override;
 };

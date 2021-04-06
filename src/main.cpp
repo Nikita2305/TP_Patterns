@@ -2,31 +2,25 @@
 #include <unordered_map>
 #include <string>
 #include <vector>
-#include "Units/Unit.h"
-#include "Units/SimpleMiner.h"
-#include "Units/TeleportingMiner.h"
-#include "Units/ImmortalMiner.h"
-#include "Units/SimpleWarrior.h"
-#include "Units/ArmorWarrior.h"
-#include "Units/SniperWarrior.h"
-#include "Commands/Command.h"
-#include "Commands/ExitCommand.h"
-#include "Commands/DeleteUnitsCommand.h"
-#include "Commands/AddUnitCommand.h"
+#include <unistd.h>
+#include "GameObjects/Player.h"
+#include "QueryHandling/PlayerInterface.h"
+#include "QueryHandling/BufferStream.h"
 
 void executeLoop() {
-    // Example of Use
-    std::vector<Unit*> units;
-    std::unordered_map<std::string, Command*> queries;
-    queries["exit"] = new ExitCommand();
-    queries["delete all"] = new DeleteUnitsCommand(units);
-
-    queries["add simple miner"] = new AddUnitCommand(new SimpleMiner(), units);
-    queries["add teleporting miner"] = new AddUnitCommand(new TeleportingMiner(), units);
-    queries["add immortal miner"] = new AddUnitCommand(new ImmortalMiner(), units);
-    queries["add simple warrior"] = new AddUnitCommand(new SimpleWarrior(), units);
-    queries["add armor warrior"] = new AddUnitCommand(new ArmorWarrior(), units);
-    queries["add sniper warrior"] = new AddUnitCommand(new SniperWarrior(), units);
+    // Attention: It is an example of use. Some time after class Game will appear.
+    // Game between two bots.
+    std::array<Player, 2> players = {Player(), Player()};
+    std::array<PlayerInterface, 2> interfaces = {PlayerInterface(players[0], std::make_unique<BufferStream>()), PlayerInterface(players[0], std::make_unique<BufferStream>())};
+    for (int iteration = 0; iteration < 10; ++iteration) {
+        // tick()
+        // draw()
+        interfaces[0].getStream()->pushBack("addUnit");
+        interfaces[0].executeAll();
+        interfaces[1].getStream()->pushBack("addUnit");
+        interfaces[1].executeAll();
+        sleep(1);
+    }
 }
 
 int main() {
