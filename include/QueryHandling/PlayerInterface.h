@@ -9,11 +9,11 @@ class PlayerInterface;
 
 class PlayerInterface {
 public:
-    PlayerInterface(Player&, std::unique_ptr<IStream>);
+    PlayerInterface(Player&, std::unique_ptr<IStream>&&);
     void executeAll();
     std::unique_ptr<IStream>& getStream();
 private:
     Player& player;
     std::unique_ptr<IStream> stream;
-    Query parse(const std::string&);
+    Query parse(const std::string&) const;
 };
