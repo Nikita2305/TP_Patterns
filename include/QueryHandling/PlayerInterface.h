@@ -9,9 +9,9 @@ class PlayerInterface;
 
 class PlayerInterface {
 public:
-    PlayerInterface(Player&, std::unique_ptr<IStream>&&);
+    PlayerInterface(Player&, std::unique_ptr<IStream>);
     void executeAll();
-    std::unique_ptr<IStream>& getStream();
+    IStream& getStream();
 private:
     Player& player;
     std::unique_ptr<IStream> stream;

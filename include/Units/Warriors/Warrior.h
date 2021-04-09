@@ -5,6 +5,7 @@ class Warrior;
 
 class Warrior: public Unit {
 public:
+    void act() override;
     virtual void attack();
 protected:
     int attackValue;

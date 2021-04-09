@@ -7,9 +7,9 @@ class BufferStream;
 
 class BufferStream: public IStream {
 public:
-    bool hasQuery() const override;
-    std::string popFirst() override;
-    void pushBack(const std::string&) override;
+    bool hasData() const override;
+    std::string extractString() override;
+    void appendString(const std::string&) override;
     void update() override;
 protected:
     std::string buffer = "";

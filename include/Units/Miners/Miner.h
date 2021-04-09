@@ -5,7 +5,8 @@ class Miner;
 
 class Miner: public Unit {
 public:
-    virtual bool mine();
+    void act() override;
+    virtual void mine();
 protected:
     int miningSpeed;
 };

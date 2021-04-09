@@ -1,6 +1,3 @@
 #include "QueryHandling/Query.h"
 
-Query::Query(const std::string& _text, const std::vector<int>& _args) {
-    args = std::move(_args);
-    text = std::move(_text);
-}
+Query::Query(const std::string& text_, const std::vector<int>& args_): text(text_), args(args_) {}
