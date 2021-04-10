@@ -7,7 +7,7 @@ void PlayerInterface::executeAll() {
     stream->update();
     while (stream->hasData()) {
         Query query = parse(stream->extractString());
-        // TODO: Game.Executor.execute(query);
+        // TODO: Game.CommandManager.execute(query);
     }
 }
 

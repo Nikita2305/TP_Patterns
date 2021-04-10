@@ -23,7 +23,7 @@ add_executable(TP_Project_2_0
         src/Units/Warriors/SniperWarrior.cpp
         src/Commands/Command.cpp
         src/Commands/AddUnitCommand.cpp
-        src/QueryHandling/Executor.cpp
+        src/Commands/CommandManager.cpp
         src/QueryHandling/Query.cpp
         src/QueryHandling/IStream.cpp
         src/QueryHandling/BufferStream.cpp

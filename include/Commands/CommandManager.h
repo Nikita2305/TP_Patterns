@@ -1,4 +1,4 @@
-class Executor;
+class CommandManager;
 
 #pragma once
 #include <unordered_map>
@@ -7,9 +7,9 @@ class Executor;
 #include "Commands/Command.h"
 #include "QueryHandling/Query.h"
 
-class Executor {
+class CommandManager {
 public:
-    Executor();
+    CommandManager();
     void execute(Player&, const Query&) const;
     std::string getWrongQuery() const;
     std::string help() const;
