@@ -1,11 +1,12 @@
-class Unit;
-
 #pragma once
-#include <iostream>
+#include "Units/UnitSquad.h"
 
-class Unit{
+class Unit {
 public:
-    virtual Unit* copy() = 0;
+    virtual std::unique_ptr<Unit> copy() const = 0;
+    virtual void act(Player& host, const Position& position) = 0;
+    void getHurt(int attackValue);
+    int getHealth() const;
 protected:
     int healthValue;
 };

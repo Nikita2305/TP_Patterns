@@ -1,10 +1,10 @@
-#include "Units/ArmorWarrior.h"
+#include "Units/Warriors/ArmorWarrior.h"
 
-//ArmorWarrior::ArmorWarrior() {
-//    healthValue = 1000;
-//    attackValue = 1;
-//}
-//
-//Unit* ArmorWarrior::copy() {
-//    return new ArmorWarrior();
-//}
+ArmorWarrior::ArmorWarrior() {
+    healthValue = 10;
+    attackValue = 1;
+}
+
+std::unique_ptr<Unit> ArmorWarrior::copy() const {
+    return std::make_unique<ArmorWarrior>();
+}

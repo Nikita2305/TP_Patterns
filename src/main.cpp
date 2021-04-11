@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include <unistd.h>
+#include <list>
 #include "GameObjects/Player.h"
 #include "QueryHandling/PlayerInterface.h"
 #include "QueryHandling/BufferStream.h"

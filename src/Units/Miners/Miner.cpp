@@ -1,10 +1,10 @@
 #include "Units/Miners/Miner.h"
 
-void Miner::act() {
-    mine();
+void Miner::act(Player& host, const Position& position) {
+    mine(host);
 }
 
-void Miner::mine() {
-    // host.mineResources(1);
+void Miner::mine(Player& host) {
+    // TODO: host.mineResources(miningSpeed);
     getHurt(1);
 }

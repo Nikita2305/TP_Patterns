@@ -1,11 +1,9 @@
-class Command;
-
 #pragma once
-#include <vector>
 #include "Units/Unit.h"
 #include "GameObjects/Player.h"
+#include <vector>
 
 class Command {
 public:
-    virtual void execute(Player&, const std::vector<int>&) = 0;
+    virtual void execute(Player& player, const std::vector<int>& args) const = 0;
 };

@@ -1,5 +1,3 @@
-class StandardInputStream;
-
 #pragma once
 #include "QueryHandling/BufferStream.h"
 

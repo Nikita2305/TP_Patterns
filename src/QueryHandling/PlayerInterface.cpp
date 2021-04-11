@@ -25,13 +25,13 @@ Query PlayerInterface::parse(const std::string& query) const {
         }
     }
     if (bound == query.size()) {
-        return Query("Wrong query", std::vector<int>()); //TODO: Game.Exec.getWQ()
+        return Query{"Wrong query", std::vector<int>()}; //TODO: Game.Exec.getWQ()
     }
     for (int i = 0; i < bound; i++) {
         if (isalpha(query[i]) || query[i] == ' ') {
             text += query[i];
         } else {
-            return Query("Wrong query", std::vector<int>()); //TODO: Game.Exec.getWQ()
+            return Query{"Wrong query", std::vector<int>()}; //TODO: Game.Exec.getWQ()
         }
     }
     bool isNumber = false;
@@ -46,8 +46,8 @@ Query PlayerInterface::parse(const std::string& query) const {
         } else if (query[i] == ' ') {
             isNumber = false;
         } else {
-            return Query("Wrong query", std::vector<int>()); //TODO: Game.Exec.getWQ()
+            return Query{"Wrong query", std::vector<int>()}; //TODO: Game.Exec.getWQ()
         }
     }
-    return Query(text, args);
+    return Query{text, args};
 }
