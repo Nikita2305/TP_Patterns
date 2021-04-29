@@ -8,6 +8,7 @@
 #include "Units/Warriors/ArmorWarrior.h"
 #include "Units/Warriors/SniperWarrior.h"
 #include <iostream>
+#include <sstream>
 
 CommandManager::CommandManager() {
     queries[getIrrelevantQuery()] = std::make_unique<IrrelevantCommand>();
@@ -56,9 +57,9 @@ std::string CommandManager::getIrrelevantQuery() const {
 }
 
 std::string CommandManager::help() const {
-    std::string ret = "";
+    std::stringstream ss;
     for (auto& t: queries) {
-        ret += t.first + "\n";
+        ss << t.first << "\n";
     }
-    return ret;
+    return ss.str();
 }
