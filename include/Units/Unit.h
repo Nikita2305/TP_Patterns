@@ -1,5 +1,10 @@
+class Unit;
+
 #pragma once
 #include "Units/UnitSquad.h"
+#include "GameObjects/Player.h"
+#include "Units/Positions/Position.h"
+#include <memory>
 
 class Unit {
 public:

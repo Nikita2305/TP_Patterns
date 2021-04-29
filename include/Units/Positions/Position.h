@@ -1,3 +1,5 @@
+class Position;
+
 #pragma once
 #include "Units/UnitSquad.h"
 #include "GameObjects/Direction.h"

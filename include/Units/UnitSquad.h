@@ -1,3 +1,5 @@
+class UnitSquad;
+
 #pragma once
 #include "Units/Unit.h"
 #include "GameObjects/Player.h"
@@ -7,7 +9,7 @@
 
 class UnitSquad {
 public:
-    UnitSquad(Player& host_, const std::deque<std::unique_ptr<Unit>>& members_, std::unique_ptr<Position> position_);
+    UnitSquad(Player& host_, std::deque<std::unique_ptr<Unit>> members_, std::unique_ptr<Position> position_);
     void move();
     void act();
     void getHurt(int attackValue);

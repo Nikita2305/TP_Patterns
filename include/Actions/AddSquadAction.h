@@ -1,7 +1,7 @@
 #pragma once
-#include "Commands/Command.h"
+#include "Actions/UserAction.h"
 
-class AddSquadCommand: public Command {
+class AddSquadAction: public UserAction {
 private:
     std::deque<std::unique_ptr<Unit>> members;
 public:

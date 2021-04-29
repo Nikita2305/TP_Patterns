@@ -6,5 +6,5 @@
 
 struct Query {
     std::string text;
-    std::vector<int> args;
+    std::vector<std::string> args;
 };

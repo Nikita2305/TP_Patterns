@@ -19,12 +19,12 @@ add_executable(TP_Project_2_0
         src/Units/Warriors/SimpleWarrior.cpp
         src/Units/Warriors/ArmorWarrior.cpp
         src/Units/Warriors/SniperWarrior.cpp
-        src/Commands/CommandManager.cpp
-        src/Commands/Command.cpp
-        src/Commands/AddSquadCommand.cpp
-        src/Commands/AddResourceSquadCommand.cpp
-        src/Commands/AddFightingSquadCommand.cpp
-        src/Commands/IrrelevantCommand.cpp
+        src/Actions/ActionManager.cpp
+        src/Actions/UserAction.cpp
+        src/Actions/AddSquadAction.cpp
+        src/Actions/AddResourceSquadAction.cpp
+        src/Actions/AddFightingSquadAction.cpp
+        src/Actions/IrrelevantAction.cpp
         src/QueryHandling/Query.cpp
         src/QueryHandling/IStream.cpp
         src/QueryHandling/BufferStream.cpp
