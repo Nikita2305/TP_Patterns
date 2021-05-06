@@ -1,3 +1,4 @@
+#include <iostream>
 #include "GameObjects/Game.h"
 #include "Actions/AddResourceSquadAction.h"
 

@@ -21,7 +21,7 @@ void Pool::tick() {
 }
 
 void Pool::draw() {
-    std::cout << "|" << units.size() << "|";
+    std::cout << " |" << units.size() << "| ";
 }
 
 std::list<std::unique_ptr<UnitSquad>>::iterator Pool::begin() {

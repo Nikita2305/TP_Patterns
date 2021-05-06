@@ -1,3 +1,4 @@
+#include <iostream>
 #include "GameObjects/Player.h"
 #include "GameObjects/EnemyDirection.h"
 #include "GameObjects/ResourceDirection.h"
@@ -14,5 +15,5 @@ void Player::sendToResourceDirection(std::unique_ptr<UnitSquad> squad, ResourceD
 }
 
 void Player::draw() {
-
+    std::cout << " / " << resources << " / " << health << " / " << std::endl;
 }

@@ -37,5 +37,5 @@ void UnitSquad::die() {
 }
 
 bool UnitSquad::isInstance(const Player& player) const {
-    return (&host == &player);
+    return std::addressof(host) == std::addressof(player);
 }

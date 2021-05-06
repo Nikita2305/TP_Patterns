@@ -1,13 +1,10 @@
 #include <iostream>
-#include <unordered_map>
-#include <string>
-#include <vector>
 #include <unistd.h>
-#include <list>
 #include "GameObjects/Game.h"
-#include "GameObjects/Player.h"
-#include "QueryHandling/PlayerInterface.h"
-#include "QueryHandling/BufferStream.h"
+
+void clearscreen() {
+
+}
 
 void executeLoop() {
     Game::makeGame();
@@ -17,6 +14,7 @@ void executeLoop() {
         Game::getGame().tick();
         Game::getGame().draw();
         sleep(1);
+        clearscreen();
     }
 }
 
