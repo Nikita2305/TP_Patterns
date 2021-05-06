@@ -15,33 +15,33 @@ ActionManager::ActionManager() {
 
     std::unique_ptr<AddResourceSquadAction> simple_miner = std::make_unique<AddResourceSquadAction>();
     simple_miner->pushUnit(std::make_unique<SimpleMiner>());
-    queries["add simple miner"] = std::move(simple_miner);
+    queries["add_simple_miner"] = std::move(simple_miner);
 
     std::unique_ptr<AddResourceSquadAction> immortal_miner = std::make_unique<AddResourceSquadAction>();
     immortal_miner->pushUnit(std::make_unique<ImmortalMiner>());
-    queries["add immortal miner"] = std::move(immortal_miner);
+    queries["add_immortal_miner"] = std::move(immortal_miner);
 
     std::unique_ptr<AddResourceSquadAction> mining_squad = std::make_unique<AddResourceSquadAction>();
     mining_squad->pushUnit(std::make_unique<SimpleMiner>());
     mining_squad->pushUnit(std::make_unique<SimpleMiner>());
-    queries["add mining squad"] = std::move(mining_squad);
+    queries["add_mining_squad"] = std::move(mining_squad);
 
     std::unique_ptr<AddFightingSquadAction> simple_warrior = std::make_unique<AddFightingSquadAction>();
     simple_warrior->pushUnit(std::make_unique<SimpleWarrior>());
-    queries["add simple warrior"] = std::move(simple_warrior);
+    queries["add_simple_warrior"] = std::move(simple_warrior);
 
     std::unique_ptr<AddFightingSquadAction> armor_warrior = std::make_unique<AddFightingSquadAction>();
     armor_warrior->pushUnit(std::make_unique<ArmorWarrior>());
-    queries["add armor warrior"] = std::move(armor_warrior);
+    queries["add_armor_warrior"] = std::move(armor_warrior);
 
     std::unique_ptr<AddFightingSquadAction> sniper_warrior = std::make_unique<AddFightingSquadAction>();
     sniper_warrior->pushUnit(std::make_unique<SniperWarrior>());
-    queries["add sniper warrior"] = std::move(sniper_warrior);
+    queries["add_sniper_warrior"] = std::move(sniper_warrior);
 
     std::unique_ptr<AddFightingSquadAction> fighting_squad = std::make_unique<AddFightingSquadAction>();
     fighting_squad->pushUnit(std::make_unique<ArmorWarrior>());
     fighting_squad->pushUnit(std::make_unique<SniperWarrior>());
-    queries["add fighting squad"] = std::move(fighting_squad);
+    queries["add_fighting_squad"] = std::move(fighting_squad);
 }
 
 void ActionManager::execute(Player& player, const Query& query) const {
@@ -53,7 +53,7 @@ void ActionManager::execute(Player& player, const Query& query) const {
 }
 
 std::string ActionManager::getIrrelevantQuery() const {
-    return "Wrong query";
+    return "wrong_query";
 }
 
 std::string ActionManager::help() const {

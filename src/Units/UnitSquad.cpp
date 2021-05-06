@@ -1,7 +1,11 @@
 #include "Units/UnitSquad.h"
 
-UnitSquad::UnitSquad(Player& host_, std::deque<std::unique_ptr<Unit>> members_, std::unique_ptr<Position> position_):
-    host(host_), members(std::move(members_)), position(std::move(position_)) {}
+UnitSquad::UnitSquad(Player& host_, std::deque<std::unique_ptr<Unit>> members_):
+    host(host_), members(std::move(members_)) {}
+
+void UnitSquad::setPosition(std::unique_ptr<Position> position_) {
+    position = std::move(position_);
+}
 
 void UnitSquad::move() {
     std::unique_ptr<Position> newPosition = position->next();

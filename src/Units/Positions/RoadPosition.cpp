@@ -5,26 +5,26 @@ RoadPosition::RoadPosition(Direction& direction_, bool isForward_, int index_): 
 
 std::unique_ptr<Position> RoadPosition::next() const {
     if (isForward && index + 1 == direction.size()) {
-        return std::make_unique<PoolPosition>(direction, isForward, ...); //TODO RightPool.begin()
+        return std::make_unique<PoolPosition>(direction, isForward, direction.getRightPool().begin());
     }
     if (!isForward && index == 0) {
-        return std::make_unique<PoolPosition>(direction, isForward, ...); //TODO LeftPool.end() - 1
+        return std::make_unique<PoolPosition>(direction, isForward, --direction.getLeftPool().end());
     }
     return std::make_unique<RoadPosition>(direction, isForward, index + getShift());
 }
 
 std::unique_ptr<UnitSquad> RoadPosition::extractUnitSquad() {
-    // TODO: return direction.extract(index);
+    return direction.extract(index);
 }
 
 bool RoadPosition::containsUnitSquad() const {
-    //TODO: return direction.isAnyone(index)
+    return !direction.isEmpty(index);
 }
 
 void RoadPosition::setUnitSquad(std::unique_ptr<UnitSquad> unitSquad) {
-    // TODO: direction.set(uE, index)
+    direction.set(std::move(unitSquad), index);
 }
 
 bool RoadPosition::isFreeToSet() const {
-    //TODO: return !direction.isAnyone(index)
+    return direction.isEmpty(index);
 }

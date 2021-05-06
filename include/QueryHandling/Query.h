@@ -7,4 +7,5 @@
 struct Query {
     std::string text;
     std::vector<std::string> args;
+    int getUInt(int index) const;
 };

@@ -9,9 +9,7 @@ add_executable(TP_Project_2_0
         src/main.cpp
         src/Units/UnitSquad.cpp
         src/Units/Unit.cpp
-        src/Units/Positions/Position.cpp
-        src/Units/Positions/RoadPosition.cpp
-        src/Units/Positions/PoolPosition.cpp
+
         src/Units/Miners/Miner.cpp
         src/Units/Miners/SimpleMiner.cpp
         src/Units/Miners/ImmortalMiner.cpp
@@ -32,4 +30,14 @@ add_executable(TP_Project_2_0
         src/QueryHandling/PlayerInterface.cpp
         src/GameObjects/Player.cpp
         src/GameObjects/Direction.cpp
+        src/GameObjects/Game.cpp
+        src/GameObjects/Drawable.cpp
+        src/GameObjects/Pool.cpp
+        src/GameObjects/Tickable.cpp
+        src/GameObjects/EnemyDirection.cpp
+        src/GameObjects/ResourceDirection.cpp
+
+        src/Units/Positions/Position.cpp
+        src/Units/Positions/RoadPosition.cpp
+        src/Units/Positions/PoolPosition.cpp
 )

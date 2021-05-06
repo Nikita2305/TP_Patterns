@@ -1,5 +1,6 @@
 #include "QueryHandling/PlayerInterface.h"
 #include <iostream>
+#include "GameObjects/Game.h"
 
 PlayerInterface::PlayerInterface(Player& player_, std::unique_ptr<IStream> stream_): player(player_), stream(std::move(stream_)) {}
 
@@ -7,7 +8,7 @@ void PlayerInterface::executeAll() {
     stream->update();
     while (stream->hasData()) {
         Query query = parse(stream->extractString());
-        // TODO: Game.ActionManager.execute(query);
+        Game::getGame().getActionManager().execute(player, query);
     }
 }
 
@@ -31,7 +32,7 @@ Query PlayerInterface::parse(const std::string& query) const {
         args.pop_back();
     }
     if (args.empty()) {
-        return Query{"Wrong query"}; //TODO: Game.Exec.getWQ()
+        return Query{""};
     }
     text = args[0];
     args.erase(args.begin());

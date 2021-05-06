@@ -18,20 +18,20 @@ PoolPosition::PoolPosition(Direction& direction_, bool isForward_, const std::li
     Position(direction_, isForward_), iterator(iterator_) {}
 
 std::unique_ptr<Position> PoolPosition::next() const {
-    if (isForward && iterator == ...) { //TODO LeftPool.end() - 1
+    if (isForward && iterator == --direction.getLeftPool().end()) {
         return std::make_unique<RoadPosition>(direction, isForward, 0);
     }
-    if (!isForward && iterator == ...) { //TODO RightPool.begin()
+    if (!isForward && iterator == direction.getRightPool().begin()) {
         return std::make_unique<RoadPosition>(direction, isForward, direction.size() - 1);
     }
     return std::make_unique<PoolPosition>(direction, isForward, iterator + getShift());
 }
 
 std::unique_ptr<UnitSquad> PoolPosition::extractUnitSquad() {
-    if (...) { //TODO RightPool.Contains(iterator). Tip: https://stackoverflow.com/questions/6302706/check-whether-iterator-belongs-to-a-list
-        //TODO return RightPool.extract(iterator)
+    if (direction.getRightPool().contains(iterator)) {
+        return direction.getRightPool().extract(iterator);
     } else {
-        //TODO return LeftPool.extract(iterator)
+        return direction.getLeftPool().extract(iterator);
     }
 }
 
@@ -40,10 +40,10 @@ bool PoolPosition::containsUnitSquad() const {
 }
 
 void PoolPosition::setUnitSquad(std::unique_ptr<UnitSquad> unitSquad) {
-    if (...) { //TODO RightPool.Contains(iterator). Tip: https://stackoverflow.com/questions/6302706/check-whether-iterator-belongs-to-a-list
-        //TODO RightPool.set(uE, iterator)
+    if (direction.getRightPool().contains(iterator)) {
+        direction.getRightPool().set(std::move(unitSquad), iterator);
     } else {
-        //TODO LeftPool.set(uE, iterator)
+        direction.getLeftPool().set(std::move(unitSquad), iterator);
     }
 }
 
