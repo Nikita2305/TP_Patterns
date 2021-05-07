@@ -1,12 +1,10 @@
-class Warrior;
-
 #pragma once
-#include "Unit.h"
+#include "Units/Unit.h"
 
 class Warrior: public Unit {
 public:
-    void act() override;
-    virtual void attack();
+    void act(Player& host, const Position& position) override;
+    virtual void attack(const Position& position) const;
 protected:
     int attackValue;
 };

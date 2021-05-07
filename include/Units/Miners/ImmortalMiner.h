@@ -1,11 +1,9 @@
-class ImmortalMiner;
-
 #pragma once
-#include "Miner.h"
+#include "Units/Miners/Miner.h"
 
 class ImmortalMiner: public Miner {
 public:
     ImmortalMiner();
-    Unit* copy() override;
-    bool mine() override;
+    std::unique_ptr<Unit> copy() const override;
+    void mine(Player&) override;
 };

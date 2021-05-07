@@ -1,5 +1,3 @@
-class PlayerInterface;
-
 #pragma once
 #include "GameObjects/Player.h"
 #include "QueryHandling/IStream.h"
@@ -9,7 +7,7 @@ class PlayerInterface;
 
 class PlayerInterface {
 public:
-    PlayerInterface(Player&, std::unique_ptr<IStream>);
+    PlayerInterface(Player& player_, std::unique_ptr<IStream> stream_);
     void executeAll();
     IStream& getStream();
 private:
