@@ -6,13 +6,13 @@
 
 Pool::Pool(Direction &host): host(host) {}
 
-void Pool::addUnit(std::unique_ptr<UnitSquad> squad, bool isForward) {
+void Pool::addUnit(std::unique_ptr<UnitSquad> unitSquad, bool isForward) {
     if (isForward) {
-        units.push_front(std::move(squad));
+        units.push_front(std::move(unitSquad));
         units.front()->setPosition(std::make_unique<PoolPosition>(host, isForward, units.begin()));
     } else {
-        units.push_back(std::move(squad));
-        units.front()->setPosition(std::make_unique<PoolPosition>(host, isForward, --units.end()));
+        units.push_back(std::move(unitSquad));
+        units.back()->setPosition(std::make_unique<PoolPosition>(host, isForward, --units.end()));
     }
 }
 
@@ -42,7 +42,15 @@ void Pool::set(std::unique_ptr<UnitSquad> unitSquad, std::list<std::unique_ptr<U
     units.insert(iterator, std::move(unitSquad));
 }
 
-bool Pool::contains(std::list<std::unique_ptr<UnitSquad>>::iterator) {
-    throw std::runtime_error("Implementation");
-    return false; // TODO
+bool Pool::contains(std::list<std::unique_ptr<UnitSquad>>::iterator iterator) {
+    for (auto& it : units) {
+        if (std::addressof(*iterator) == std::addressof(it)) {
+            return true;
+        }
+    }
+    return false;
+}
+
+std::list<std::unique_ptr<UnitSquad>>& Pool::getUnits() {
+    return units;
 }

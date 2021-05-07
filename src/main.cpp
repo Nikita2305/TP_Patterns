@@ -3,7 +3,7 @@
 #include "GameObjects/Game.h"
 
 void clearscreen() {
-
+    std::cout << std::string(8, '\n');
 }
 
 void executeLoop() {

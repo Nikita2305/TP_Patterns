@@ -10,12 +10,12 @@ class UnitSquad;
 
 class EnemyDirection: public Drawable, public Tickable {
 public:
-    EnemyDirection(Player* p1, Player* p2, int length);
+    EnemyDirection(Player& playerLeft, Player& playerRight, int length);
     void tick() override;
     void draw() override;
-    void addUnit(std::unique_ptr<UnitSquad>);
+    void addUnit(std::unique_ptr<UnitSquad> unitSquad);
 private:
-    Player* playerLeft;
-    Player* playerRight;
+    Player& playerLeft;
+    Player& playerRight;
     Direction direction;
 };

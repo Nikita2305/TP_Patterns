@@ -12,8 +12,8 @@ public:
     Player(int resources, int health);
     void draw() override;
     void heal(int health);
-    void sendToResourceDirection(std::unique_ptr<UnitSquad>, ResourceDirection&);
-    void sendToEnemyDirection(std::unique_ptr<UnitSquad> , EnemyDirection&);
+    void sendToResourceDirection(std::unique_ptr<UnitSquad> unitSquad, ResourceDirection& resourceDirection);
+    void sendToEnemyDirection(std::unique_ptr<UnitSquad> unitSquad, EnemyDirection& enemyDirection);
 private:
     int resources;
     int health;

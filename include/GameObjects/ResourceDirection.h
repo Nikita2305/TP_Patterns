@@ -10,13 +10,13 @@ class UnitSquad;
 
 class ResourceDirection: public Drawable, public Tickable {
 public:
-    ResourceDirection(Player* p1, Player* p2, int length);
+    ResourceDirection(Player& playerLeft, Player& playerRight, int length);
     void tick() override;
     void draw() override;
-    void addUnit(std::unique_ptr<UnitSquad>);
+    void addUnit(std::unique_ptr<UnitSquad> unitSquad);
 private:
-    Player* playerLeft;
-    Player* playerRight;
+    Player& playerLeft;
+    Player& playerRight;
     Direction directionLeft;
     Direction directionRight;
 };

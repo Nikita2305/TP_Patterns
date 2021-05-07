@@ -4,11 +4,11 @@
 
 Direction::Direction(int length): poolLeft(*this), poolRight(*this), units(length) {}
 
-void Direction::addUnit(std::unique_ptr<UnitSquad> squad, bool isForward) {
+void Direction::addUnit(std::unique_ptr<UnitSquad> unitSquad, bool isForward) {
     if (isForward) {
-        poolLeft.addUnit(std::move(squad), isForward);
+        poolLeft.addUnit(std::move(unitSquad), isForward);
     } else {
-        poolRight.addUnit(std::move(squad), isForward);
+        poolRight.addUnit(std::move(unitSquad), isForward);
     }
 }
 
@@ -46,4 +46,8 @@ bool Direction::isEmpty(int index) const {
 
 void Direction::set(std::unique_ptr<UnitSquad> unitSquad, int index) {
     units[index] = std::move(unitSquad);
+}
+
+std::vector<std::unique_ptr<UnitSquad>>& Direction::getUnits() {
+    return units;
 }

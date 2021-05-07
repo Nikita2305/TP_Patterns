@@ -40,7 +40,7 @@ bool PoolPosition::containsUnitSquad() const {
 }
 
 void PoolPosition::setUnitSquad(std::unique_ptr<UnitSquad> unitSquad) {
-    if (direction.getRightPool().contains(iterator)) {
+    if (direction.getRightPool().contains(iterator)) { // TODO: case of begin == end // sosyot. Solution seems like bool isRight as a field of PoolPosition
         direction.getRightPool().set(std::move(unitSquad), iterator);
     } else {
         direction.getLeftPool().set(std::move(unitSquad), iterator);

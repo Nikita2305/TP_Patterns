@@ -14,9 +14,9 @@ public:
     void tick();
     void draw();
     void executeQueries();
-    EnemyDirection& getEnemyDirection(int);
-    ResourceDirection& getResourceDirection(int);
-    Player& getPlayer(int);
+    EnemyDirection& getEnemyDirection(int index);
+    ResourceDirection& getResourceDirection(int index);
+    Player& getPlayer(int index);
     ActionManager& getActionManager();
 private:
     Game() = default;

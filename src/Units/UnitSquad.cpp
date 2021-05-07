@@ -1,3 +1,5 @@
+#include <iostream>
+#include <Units/Positions/PoolPosition.h>
 #include "Units/UnitSquad.h"
 
 UnitSquad::UnitSquad(Player& host_, std::deque<std::unique_ptr<Unit>> members_):

@@ -13,10 +13,11 @@ public:
     Direction(int length);
     void tick() override;
     void draw() override;
-    void addUnit(std::unique_ptr<UnitSquad>, bool isForward);
+    void addUnit(std::unique_ptr<UnitSquad> unitSquad, bool isForward);
     int size();
     Pool& getLeftPool();
     Pool& getRightPool();
+    std::vector<std::unique_ptr<UnitSquad>>& getUnits();
     std::unique_ptr<UnitSquad> extract(int index);
     bool isEmpty(int index) const;
     void set(std::unique_ptr<UnitSquad> unitSquad, int index);
