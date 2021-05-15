@@ -1,14 +1,21 @@
 #include <iostream>
-#include <unordered_map>
-#include <string>
-#include <vector>
 #include <unistd.h>
-#include "GameObjects/Player.h"
-#include "QueryHandling/PlayerInterface.h"
-#include "QueryHandling/BufferStream.h"
+#include "GameObjects/Game.h"
+
+void clearscreen() {
+    std::cout << std::string(8, '\n');
+}
 
 void executeLoop() {
-
+    Game::makeGame();
+    Game::getGame().init();
+    for (int i = 0; i < 10; i++) {
+        Game::getGame().executeQueries();
+        Game::getGame().tick();
+        Game::getGame().draw();
+        sleep(1);
+        clearscreen();
+    }
 }
 
 int main() {

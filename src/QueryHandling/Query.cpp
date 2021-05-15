@@ -1,3 +1,18 @@
 #include "QueryHandling/Query.h"
 
-Query::Query(const std::string& text_, const std::vector<int>& args_): text(text_), args(args_) {}
+int Query::getUInt(int index) const {
+    std::string value;
+    try {
+        value = args[index];
+    } catch (...) {
+        throw;
+    }
+    int ret = 0;
+    for (auto t : value) {
+        if (!isdigit(t)) {
+            throw std::runtime_error("NaN");
+        }
+        ret = ret * 10 + (t - '0');
+    }
+    return ret;
+}
